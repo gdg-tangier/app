@@ -5,9 +5,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                @component('card', ['title' => 'Dashboard'])
+                @component('card', ['title' => 'Upcoming Events'])
 
-					
+					@if($events->isEmpty())
+
+						@include('events.empty')
+
+					@else
+
+						@include('events.all')
+				
+					@endif
+
+                @endcomponent
+
+                <hr>
+
+                @component('card', ['title' => 'Events ideas'])
+
+					<p>This section is still under constructions.</p>
 
                 @endcomponent
             </div>
