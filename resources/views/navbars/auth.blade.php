@@ -2,7 +2,8 @@
 
     @slot('left')
 
-        <li><a href="/home" class="nav-link">Dashboard</a></li>
+        <li><a class="nav-link" href="/home">Dashboard</a></li>
+        <li><a class="nav-link" href="{{ route('users.index') }}">Members</a></li>
 
     @endslot
             
