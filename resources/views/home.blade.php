@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 @component('card', ['title' => 'Upcoming Events'])
 
 					@if($events->isEmpty())
@@ -28,7 +28,7 @@
                 @endcomponent
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @component('card', ['title' => 'Links'])
 
 					<ul>

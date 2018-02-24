@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('url');
             $table->string('assessment')->nullable();
+            $table->integer('invitations_count');
             $table->datetime('scheduled_at');
         });
     }
