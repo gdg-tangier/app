@@ -10,4 +10,9 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $guarded = [];
+
+    public function isAdmin()
+    {
+    	return $this->role === 'admin';
+    }
 }

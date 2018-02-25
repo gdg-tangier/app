@@ -22,8 +22,9 @@ class EventsTableSeeder extends Seeder
                 'id' => 1,
                 'title' => 'Cloud Study Jam',
                 'url' => 'https://www.meetup.com/gdgtangier/events/247094455',
+                'assessment' => NULL,
+                'invitations_count' => 20,
                 'scheduled_at' => '2018-02-24 16:00:00',
-                'invitations_count' => 20
             ),
         ));
         

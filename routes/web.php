@@ -13,3 +13,8 @@ Route::patch('/users/{user}', 'UserController@update')->name('users.update');
 Route::get('/events/{event}', 'EventController@apply')->name('events.apply');
 
 Route::post('/events/{event}/applications', 'EventApplicationController@store')->name('events.applications.store');
+
+// Admin
+
+Route::get('/admin/events', 'Admin\\EventController@index')->name('admin.events.index');
+Route::get('/admin/events/{user}/attendees', 'Admin\\EventAttendeeController@index')->name('admin.events.attendees.index');
