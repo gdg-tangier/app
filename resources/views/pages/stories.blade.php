@@ -12,14 +12,14 @@
 
                         <br>
 
-                        Here will be interviews from famous people.
+                        Here will be interviews of success morrocan stories.
 
                         <br>
 
                         <ul>
-                            <li>Apply for a talk</li>
-                            <li>Apply for an open source project</li>
-                            <li>Apply for event organiser</li>
+                            <li>Podcasts</li>
+                            <li>Interviews</li>
+                            <li>Audio or video or article</li>
                         </ul>
                     </p>
 

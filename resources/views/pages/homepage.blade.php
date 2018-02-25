@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 @component('card', ['title' => 'Welcome to GDG Tangier'])
 
-                	Grow your skills and build a career as: 
+                    A community commited to help people build a career as: 
 
                 	<hr>
 

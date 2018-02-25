@@ -17,9 +17,7 @@
                         <br>
 
                         <ul>
-                            <li>Apply for a talk</li>
-                            <li>Apply for an open source project</li>
-                            <li>Apply for event organiser</li>
+                            <li>Get outside experience</li>
                         </ul>
                     </p>
 

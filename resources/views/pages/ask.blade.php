@@ -5,21 +5,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                @component('card', ['title' => 'Stories'])
+                @component('card', ['title' => 'Ask'])
 
                     <p>
                         This section is under construction.
 
                         <br>
 
-                        Here will be interviews from famous people.
+                        Here will be a form to ask for anything.
 
                         <br>
 
                         <ul>
-                            <li>Apply for a talk</li>
-                            <li>Apply for an open source project</li>
-                            <li>Apply for event organiser</li>
+                            <li>Issue</li>
+                            <li>Feedback</li>
                         </ul>
                     </p>
 

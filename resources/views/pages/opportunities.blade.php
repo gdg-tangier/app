@@ -5,21 +5,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                @component('card', ['title' => 'Stories'])
+                @component('card', ['title' => 'Share'])
 
                     <p>
                         This section is under construction.
 
                         <br>
 
-                        Here will be interviews from famous people.
+                        Here will be a list of opportunities: 
 
                         <br>
 
                         <ul>
-                            <li>Apply for a talk</li>
-                            <li>Apply for an open source project</li>
-                            <li>Apply for event organiser</li>
+                            <li>Jobs</li>
+                            <li>Internships</li>
                         </ul>
                     </p>
 
