@@ -18,14 +18,6 @@
 					@endif
 
                 @endcomponent
-
-                <hr>
-
-                @component('card', ['title' => 'Events ideas'])
-
-					<p>This section is still under constructions.</p>
-
-                @endcomponent
             </div>
 
             <div class="col-md-3">
