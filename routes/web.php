@@ -17,4 +17,4 @@ Route::post('/events/{event}/applications', 'EventApplicationController@store')-
 // Admin
 
 Route::get('/admin/events', 'Admin\\EventController@index')->name('admin.events.index');
-Route::get('/admin/events/{user}/attendees', 'Admin\\EventAttendeeController@index')->name('admin.events.attendees.index');
+Route::get('/admin/events/{event}/attendees', 'Admin\\EventAttendeeController@index')->name('admin.events.attendees.index');
