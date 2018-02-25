@@ -8,7 +8,7 @@
                 @component('card', ['title' => $event->title . ' attendees'])
 
                     <ul>
-                        @foreach($event->users()->get() as $user)
+                        @foreach($event->attendees()->get() as $user)
                         
                             <li>
                                 {{ $user->name }} - {{ $user->invitation->code }} - 
