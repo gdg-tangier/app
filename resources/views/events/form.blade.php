@@ -29,7 +29,7 @@
             <div class="card-body">
                 Click on the button down below to get your invitation code. <hr>
                 
-                <form method="post" action="{{ route('events.applications.store', $event->id) }}">
+                <form method="post" action="{{ route('events.invitations.store', [$event->id, auth()->id()]) }}">
                     @csrf
 
                     <button type="submit" class="btn btn-success">I want my invitation code</button>

@@ -15,20 +15,20 @@
 			<td>{{ $event->scheduled_at->toFormattedDateString() }} <br> <small>{{ $event->scheduled_at->diffForHumans() }}</small></td>
 			<td><a href="{{ $event->url }}" target="_blank">meetup.com/{{ $event->title }}</a></td>
 			<td>
-				{{ $event->invitations_count - $event->users()->count() }} invitation left [FIX BUG, ONLY state null for invitation]
+				{{ $event->invitations_available - $event->invitations_count }} invitations left.
 			</td>
 			<td>
 				@if($event->hasInvitation(auth()->user()))
 					
 					<span class="badge badge-success">Your invitation is ready</span>
 					<br>
-					Code: <strong>{{ $event->users()->where('user_id', auth()->id())->first()->invitation->code }}</strong>	
+					Code: <strong>{{ $event->getInvitation(auth()->user())->code }}</strong>	
 					<hr>
-					<a href="{{ route('events.apply', $event->id) }}" class="btn btn-warning btn-sm">Cancel</a>
+					<a href="{{ route('events.invitations.create', $event->id) }}" class="btn btn-warning btn-sm">Cancel</a>
 
 				@else
 				
-					<a href="{{ route('events.apply', $event->id) }}" class="btn btn-success btn-sm">I want to come?</a>
+					<a href="{{ route('events.invitations.create', $event->id) }}" class="btn btn-success btn-sm">I want to come?</a>
 				
 				@endif
 			</td>

@@ -18,9 +18,9 @@ Route::get('/users/{user}', 'UserController@show')->name('users.show');
 Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
 Route::patch('/users/{user}', 'UserController@update')->name('users.update');
 
-Route::get('/events/{event}', 'EventController@apply')->name('events.apply');
+Route::get('/events/{event}/invitations/create', 'InvitationController@create')->name('events.invitations.create');
+Route::post('/events/{event}/invitations', 'InvitationController@store')->name('events.invitations.store');
 
-Route::post('/events/{event}/applications', 'EventApplicationController@store')->name('events.applications.store');
 Route::patch('/invitations/{invitation}', 'InvitationController@update')->name('invitations.update');
 
 // Admin
