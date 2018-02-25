@@ -21,6 +21,7 @@ Route::patch('/users/{user}', 'UserController@update')->name('users.update');
 Route::get('/events/{event}', 'EventController@apply')->name('events.apply');
 
 Route::post('/events/{event}/applications', 'EventApplicationController@store')->name('events.applications.store');
+Route::patch('/invitations/{invitation}', 'InvitationController@update')->name('invitations.update');
 
 // Admin
 

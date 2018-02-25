@@ -16,11 +16,16 @@ class Event extends Model
     {
     	return $this->belongsToMany(User::class)
                     ->as('invitation')
-                    ->withPivot(['code'])
+                    ->withPivot(['code', 'state'])
                     ->withTimestamps();
     }
 
-    public function generateCode($length = 5)
+    public function getInvitation(User $user)
+    {
+        return Invitation::whereNull('state')->where('user_id', $user->id)->where('event_id', $this->id)->first();
+    }
+
+    public function generateInvitationCode($length = 5)
     {
         $pool = array_merge(range(0,9), range('a', 'z'),range('A', 'Z'));
 
@@ -34,15 +39,15 @@ class Event extends Model
         return $key;
     }
 
-    public function apply(User $user)
+    public function createInvitation(User $user)
     {
         return $this->users()->attach($user, [
-            'code'    => $this->generateCode()
+            'code'    => $this->generateInvitationCode()
         ]);
     }
 
-    public function applied(User $user)
+    public function hasInvitation(User $user)
     {
-    	return $this->users()->where('user_id', $user->id)->first();
+        return Invitation::whereNull('state')->where('user_id', $user->id)->where('event_id', $this->id)->exists();
     }
 }

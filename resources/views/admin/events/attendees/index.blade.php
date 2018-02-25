@@ -12,9 +12,30 @@
                         
                             <li>
                                 {{ $user->name }} - {{ $user->invitation->code }} - 
-                                <span class="badge badge-success">Attended</span>
-                                <span class="badge badge-warning">Cancelled</span>
-                                <span class="badge badge-danger">Missed</span>
+
+                                @if($user->invitation->state === 'cancelled')
+
+                                    <span class="badge badge-warning">Cancelled</span>
+
+                                @elseif($user->invitation->state === 'attended')
+
+                                    <span class="badge badge-success">Attended</span>
+
+                                @elseif($user->invitation->state === 'missed')
+
+                                    <span class="badge badge-danger">Missed</span>
+
+                                @else
+
+                                    <span class="badge badge-dark">Pending</span>                                
+    
+                                @endif
+
+                                <br>
+
+                                <small>created at {{ $user->invitation->created_at->diffForHumans() }}, updated at {{ $user->invitation->updated_at->diffForHumans() }} </small>
+
+                                <hr>
                             </li>
 
                         @endforeach

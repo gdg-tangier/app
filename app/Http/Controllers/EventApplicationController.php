@@ -13,7 +13,7 @@ class EventApplicationController extends Controller
     
     public function store(Event $event)
     {
-    	$event->apply(auth()->user());
+    	$event->createInvitation(auth()->user());
 
     	return back();
     }

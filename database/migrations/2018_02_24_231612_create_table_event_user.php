@@ -18,6 +18,7 @@ class CreateTableEventUser extends Migration
             $table->integer('event_id');
             $table->integer('user_id');
             $table->string('code');
+            $table->enum('state', ['cancelled', 'attended', 'missed'])->nullable();
             $table->timestamps();
         });
     }

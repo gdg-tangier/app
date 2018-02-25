@@ -13,12 +13,12 @@
             </div>
             <div class="col-md-9">
                 
-                @if($event->applied(auth()->user()))
+                @if($event->hasInvitation(auth()->user()))
 
                     @component('card', ['title' => 'Your invitation'])
                             
                         @include('events.invitation', [
-                            'invitation' => $event->users()->where('user_id', auth()->id())->first()->invitation
+                            'invitation' => $event->getInvitation(auth()->user())
                         ])
 
                     @endcomponent
