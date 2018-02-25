@@ -12,7 +12,7 @@
 		@foreach($events as $event)
 		<tr>
 			<td>{{ $event->title }}</td>
-			<td>{{ $event->scheduled_at }} <br> <small>{{ $event->scheduled_at->diffForHumans() }}</small></td>
+			<td>{{ $event->scheduled_at->toFormattedDateString() }} <br> <small>{{ $event->scheduled_at->diffForHumans() }}</small></td>
 			<td><a href="{{ $event->url }}" target="_blank">meetup.com/{{ $event->title }}</a></td>
 			<td>
 				{{ $event->invitations_count - $event->users()->count() }} invitation left

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('scheduled_at', '>', Carbon::now())->get();
 
         return view('home', compact('events'));
     }
