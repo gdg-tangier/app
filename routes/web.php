@@ -1,6 +1,13 @@
 <?php
 
 Route::view('/', 'pages.homepage');
+Route::view('/moroccan-success-stories', 'pages.stories');
+Route::view('/interviews', 'pages.interviews');
+Route::view('/announcements', 'pages.announcements');
+Route::view('/ask', 'pages.ask');
+Route::view('/opportunities', 'pages.opportunities');
+Route::view('/members', 'pages.members');
+Route::view('/share', 'pages.share');
 
 Auth::routes();
 
