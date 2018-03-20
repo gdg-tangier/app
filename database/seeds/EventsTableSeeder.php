@@ -20,11 +20,19 @@ class EventsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'title' => 'Cloud Study Jam',
-                'url' => 'https://www.meetup.com/gdgtangier/events/247094455',
+                'title' => 'Kotlin 101: We\'ll be building our first Hello World app',
+                'details' => '<p>
+We\'ll be building our first Hello World app using Kotlin. <br><br>
+
+Requirements:
+<ul>
+<li>Android Studio installed</li>
+</ul>
+</p>',
+                'url' => 'https://www.meetup.com/gdgtangier/events/248911718/',
                 'assessment' => NULL,
-                'invitations_available' => 20,
-                'scheduled_at' => '2018-02-24 16:00:00',
+                'invitations_available' => 8,
+                'scheduled_at' => '2018-03-24 05:00:00',
             ),
         ));
         

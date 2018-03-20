@@ -24,15 +24,16 @@
                 @component('card', ['title' => 'Links'])
 
 					<ul>
-						<li><a href="https://github.com/gdg-tangier" target="_blank">Github</a></li>
-						<li><a href="https://gdg-tangier.slack.com" target="_blank">Slack</a></li>
 						<li><a href="https://www.meetup.com/gdgtangier/" target="_blank">Meetup</a></li>
+						<li><a href="https://gdg-tangier.slack.com" target="_blank">Slack</a></li>
+						<li><a href="https://github.com/gdg-tangier" target="_blank">Github</a></li>
 					</ul>
 
 					<ul>
 						<li><a href="https://www.facebook.com/gdgtangier/" target="_blank">Facebook</a></li>
 						<li><a href="https://twitter.com/gdgtangier" target="_blank">Twitter</a></li>
 						<li><a href="https://www.instagram.com/gdgtangier/" target="_blank">Instagram</a></li>
+						<li><a href="mailto:gdgtangier@gmail.com">Email us</a></li>
 					</ul>
 
                 @endcomponent

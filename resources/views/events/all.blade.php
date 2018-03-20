@@ -28,7 +28,15 @@
 
 				@else
 				
-					<a href="{{ route('events.invitations.create', $event->id) }}" class="btn btn-success btn-sm">I want to come?</a>
+					@if(($event->invitations_available - $event->invitations_count) > 0)
+
+						<a href="{{ route('events.invitations.create', $event->id) }}" class="btn btn-success btn-sm">I want to come?</a>
+
+					@else
+
+						<span class="badge badge-danger">No seats available</span>
+
+					@endif
 				
 				@endif
 			</td>

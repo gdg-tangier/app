@@ -3,15 +3,17 @@
 </p>
 <h3 class="text-center"><small>Invitation Code: </small> <strong>"{{ $invitation->code }}"</strong></h3>
 <p class="text-center">
-    Your invitation as been comfirmed. You can cancel anytime. <br>
-    If you don't come the day of the event, you will lose points.
+    Your invitation has been confirmed. You can cancel anytime. <br>
+    If having a code and you didn't come, you will lose points.
 </p>
 <form method="post" action="{{ route('invitations.update', $invitation->id) }}">
 	@method('patch')
 	@csrf
 	<p class="text-center">
-	    <button type="submit" class="btn btn-danger btn-ms" name="canceled" value="true">
+	    <button type="submit" class="btn btn-danger btn-ms" name="canceled" value="true" onclick="this.disabled='disabled'; this.form.submit()">
 	        Cancel
 	    </button>
+	    <hr>
+	    <small>Please cancel 24h at least before the event to let a chance for the other attendees.</small>
 	</p> 
 </form>

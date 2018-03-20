@@ -21,7 +21,7 @@
         <div class="card-header">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">
-                I want to assist this event, I am ready! :)
+                I want to assist this event; I am ready! :)
             </button>
           </h5>
         </div>
@@ -32,7 +32,7 @@
                 <form method="post" action="{{ route('events.invitations.store', [$event->id, auth()->id()]) }}">
                     @csrf
 
-                    <button type="submit" class="btn btn-success">I want my invitation code</button>
+                    <button type="submit" class="btn btn-success" onclick="this.disabled='disabled'; this.form.submit()">I want my invitation code</button>
                 </form>
             </div>
         </div>

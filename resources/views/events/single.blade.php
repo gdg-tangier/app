@@ -1,1 +1,1 @@
-//Basic events informations
+{!! $event->details !!}
