@@ -25,6 +25,11 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        if($user->id != auth()->id())
+        {
+            return redirect(route('users.show', $user->id));
+        }
+
         return view('users.edit', compact('user'));
     }
 
