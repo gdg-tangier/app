@@ -152,6 +152,7 @@ return [
          */
 
         Orangehill\Iseed\IseedServiceProvider::class,
+        Spatie\DbSnapshots\DbSnapshotsServiceProvider::class,
 
         /*
          * Application Service Providers...
