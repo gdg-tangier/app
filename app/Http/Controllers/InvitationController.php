@@ -7,11 +7,13 @@ use App\Event;
 
 class InvitationController extends Controller
 {
-    public function create(Event $event)
+    //Tested
+    public function __construct()
     {
-        return view('events.invitations.create', compact('event'));
+        $this->middleware(['auth'])->only(['store']);
     }
 
+    //Tested
 	public function store(Event $event)
     {
     	$event->createInvitation(auth()->user());
@@ -19,12 +21,13 @@ class InvitationController extends Controller
     	return back();
     }
 
+    //Tested
     public function update(Invitation $invitation)
     {
     	$invitation->update([
     		'state' => 'cancelled'
     	]);
 
-    	return redirect('/home');
+    	return back();
     }
 }
