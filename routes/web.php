@@ -24,4 +24,8 @@ Route::patch('/invitations/{invitation}', 'InvitationController@update')->name('
 // Admin
 
 Route::get('/admin/events', 'Admin\\EventController@index')->name('admin.events.index');
+
 Route::get('/admin/events/{event}/attendees', 'Admin\\EventAttendeeController@index')->name('admin.events.attendees.index');
+
+Route::get('/admin/events/{event}/check-in', 'Admin\\EventCheckInController@index')->name('admin.events.checkin.index');
+Route::patch('/admin/events/{event}/check-in', 'Admin\\EventCheckInController@update')->name('admin.events.checkin.update');

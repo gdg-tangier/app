@@ -11,25 +11,11 @@
                         @foreach($event->attendees()->get() as $user)
                         
                             <li>
-                                {{ $user->name }} - {{ $user->invitation->code }} - 
+                                {{ $user->name }} - {{ $user->invitation->code }} -
 
-                                @if($user->invitation->state === 'cancelled')
-
-                                    <span class="badge badge-warning">Cancelled</span>
-
-                                @elseif($user->invitation->state === 'attended')
-
-                                    <span class="badge badge-success">Attended</span>
-
-                                @elseif($user->invitation->state === 'missed')
-
-                                    <span class="badge badge-danger">Missed</span>
-
-                                @else
-
-                                    <span class="badge badge-dark">Pending</span>                                
-    
-                                @endif
+                                @include('admin.events.attendees.state', [
+                                    'state' => $user->invitation->state
+                                ])
 
                                 <br>
 

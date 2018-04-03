@@ -42,6 +42,6 @@ trait Invitationable
     //Tested
     public function getInvitation(User $user)
     {
-        return Invitation::whereNull('state')->where('user_id', $user->id)->where('event_id', $this->id)->first();
+        return Invitation::where('user_id', $user->id)->where('event_id', $this->id)->first();
     }
 }

@@ -10,7 +10,16 @@
                     <ul>
                     	@foreach($events as $event)
 
-                    		<li>{{ $event->title }} - <a href="{{ route('admin.events.attendees.index', $event->id) }}" class="btn btn-primary btn-sm">Attendees</a></li>
+                    		<li>
+                                {{ $event->title }} 
+                                - 
+                                <a href="{{ route('admin.events.attendees.index', $event->id) }}" class="btn btn-primary btn-sm">
+                                    Attendees
+                                </a>
+                                <a href="{{ route('admin.events.checkin.index', $event->id) }}" class="btn btn-success btn-sm">
+                                    Check In
+                                </a>
+                            </li>
 
                     	@endforeach
                     </ul>
