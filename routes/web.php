@@ -7,7 +7,6 @@ Route::view('/announcements', 'pages.announcements');
 Route::view('/ask', 'pages.ask');
 Route::view('/opportunities', 'pages.opportunities');
 Route::view('/members', 'pages.members');
-Route::view('/share', 'pages.share');
 
 Auth::routes();
 
