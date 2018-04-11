@@ -7,7 +7,6 @@ use App\Invitation;
 
 trait Invitationable
 {
-	//Tested
     public function attendees()
     {
         return $this->belongsToMany(User::class)
@@ -16,18 +15,18 @@ trait Invitationable
                     ->withTimestamps();
     }
 
-    //Tested
     public function createInvitation(User $user)
     {
-        return $this->attendees()->attach($user, [
-            'code' => $this->generateInvitationCode()
+        return Invitation::create([
+            'event_id' => $this->id,
+            'user_id'  => $user->id,
+            'code'     => $this->generateInvitationCode()
         ]);
     }
 
-    //Tested
     public function generateInvitationCode($length = 5)
     {
-        $pool = array_merge(range(0,9), range('a', 'z'),range('A', 'Z'));
+        $pool = array_merge(range(0,9), range('A', 'Z'));
 
         $key = null;
 
@@ -39,7 +38,6 @@ trait Invitationable
         return $key;
     }
 
-    //Tested
     public function getInvitation(User $user)
     {
         return Invitation::where('user_id', $user->id)->where('event_id', $this->id)->first();

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Event;
 
 $factory->define(Event::class, function (Faker $faker) {
+
     return [
     	'title' 				=> $faker->sentence,
         'url'					=> $faker->url,

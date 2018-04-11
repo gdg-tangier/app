@@ -7,25 +7,28 @@
             <div class="col-md-12">
                 @component('card', ['title' => $event->title . ' attendees'])
 
-                    <ul>
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Invitation Code</th>
+                            <th>State</th>
+                        </tr>
                         @foreach($event->attendees()->get() as $user)
                         
-                            <li>
-                                {{ $user->name }} - {{ $user->invitation->code }} -
-
-                                @include('admin.events.attendees.state', [
-                                    'state' => $user->invitation->state
-                                ])
-
-                                <br>
-
-                                <small>created at {{ $user->invitation->created_at->diffForHumans() }}, updated at {{ $user->invitation->updated_at->diffForHumans() }} </small>
-
-                                <hr>
-                            </li>
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td><strong>{{ $user->invitation->code }}</strong></td>
+                                <td>
+                                    @include('admin.events.attendees.state', [
+                                        'state' => $user->invitation->state
+                                    ])
+                                </td>
+                            </tr>
 
                         @endforeach
-                    </ul>
+                    </table>
 
                 @endcomponent
             </div>

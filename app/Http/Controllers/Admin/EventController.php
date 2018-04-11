@@ -9,17 +9,12 @@ class EventController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'admin']);
     }
 
     public function index()
     {
-    	if(! auth()->user()->isAdmin())
-    	{
-    		abort(403, 'not authorized be an admin first !');
-    	}
-
-    	$events = Event::all();
+    	$events = Event::orderBy('scheduled_at', 'desc')->get();
 
     	return view('admin.events.index', compact('events'));
     }
