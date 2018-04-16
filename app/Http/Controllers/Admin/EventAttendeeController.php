@@ -27,6 +27,10 @@ class EventAttendeeController extends Controller
 
     	$invitation = $event->createInvitation($user);
 
-    	return redirect(route('admin.events.checkin.update', ['event_id' => $event->id, 'state' => 'success', 'invitation_code' => $invitation->id]));
+        $invitation->update([
+            'state' => 'attended'
+        ]);
+
+        return redirect(route('admin.events.checkin.index', ['event' => $event->id, 'state' => 'success', 'invitation_code' => $invitation->code]));
     }
 }
