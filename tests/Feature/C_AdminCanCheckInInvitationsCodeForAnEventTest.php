@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Carbon\Carbon;
 use App\Event;
+use App\User;
 
 class C_AdminCanCheckInInvitationsCodeForAnEventTest extends TestCase
 {
@@ -52,8 +53,6 @@ class C_AdminCanCheckInInvitationsCodeForAnEventTest extends TestCase
 
         $this->assertEquals(Response::HTTP_OK, $response);
 
-        //
-
         $event = $this->assumingThereIsAnUpcomingEvent();
 
         $response = $this->iCanAccessCheckInPage($event);
@@ -67,12 +66,44 @@ class C_AdminCanCheckInInvitationsCodeForAnEventTest extends TestCase
 
     public function test_admin_can_test_a_valid_invitation_code_for_the_event()
     {
-        //TODO
+        $event = $this->assumingThereIsAnEventToday();
+
+        $user = factory(User::class)->create();
+
+        $invitation = $event->createInvitation($user);
+
+        $this->assumingIamALoggedInAdmin();
+
+        $this->json('PATCH', route('admin.events.checkin.update', $event), ['invitation_code' => $invitation->code])
+             ->assertRedirect(
+                route('admin.events.checkin.index', [
+                    'event'           => $event->id, 
+                    'state'           => 'success',
+                    'invitation_code' => $invitation->code
+                ])
+            );
+
+        $this->assertDatabaseHas('event_user', [
+            'user_id'   => $user->id,
+            'event_id'  => $event->id,
+            'code'      => $invitation->code,
+            'state'     => 'attended'
+        ]);
     }
 
     public function test_admin_can_test_an_invalid_invitation_code_for_the_event()
     {
-        //TODO
+        $event = $this->assumingThereIsAnEventToday();
+
+        $this->assumingIamALoggedInAdmin();
+
+        $this->json('PATCH', route('admin.events.checkin.update', $event))
+             ->assertRedirect(
+                route('admin.events.checkin.index', [
+                    'event' => $event->id, 
+                    'state' => 'not-found'
+                ])
+            );
     }
 
     /** 
