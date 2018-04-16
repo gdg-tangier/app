@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Invitation;
 use App\Event;
+use App\Invitation;
 
 class InvitationController extends Controller
 {
@@ -12,11 +12,11 @@ class InvitationController extends Controller
         $this->middleware('auth');
     }
 
-	public function store(Event $event)
+    public function store(Event $event)
     {
-    	$event->createInvitation(auth()->user());
+        $event->createInvitation(auth()->user());
 
-    	return back();
+        return back();
     }
 
     public function update(Invitation $invitation)
@@ -24,9 +24,9 @@ class InvitationController extends Controller
         $this->authorize('update', $invitation);
 
         $invitation->update([
-    		'state' => 'cancelled'
-    	]);
+            'state' => 'cancelled',
+        ]);
 
-    	return back();
+        return back();
     }
 }

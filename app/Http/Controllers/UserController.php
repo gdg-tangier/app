@@ -25,8 +25,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        if($user->id != auth()->id())
-        {
+        if ($user->id != auth()->id()) {
             return redirect(route('users.show', $user->id));
         }
 
@@ -35,8 +34,8 @@ class UserController extends Controller
 
     public function update(User $user)
     {
-    	$user->update(request()->all());
+        $user->update(request()->all());
 
-    	return back();
+        return back();
     }
 }
