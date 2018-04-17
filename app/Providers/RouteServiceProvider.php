@@ -82,7 +82,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAdminRoutes(Router $router)
     {
         $router->group([
-            'middleware' => ['web', 'admin'],
+            'middleware' => ['web', 'auth', 'admin'],
             'domain' => 'admin.' . config('app.url'),
             'namespace' => $this->namespace,
             'as' => 'admin.',
