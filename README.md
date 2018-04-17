@@ -3,6 +3,7 @@
 ### Features to add or alter
 
 - Confirmation of the email after registration to avoid spam
+- Organisers of an event or maybe admins shouldn't be allowed to get invitations for events. They just fill the space. ?
 
 ### Features to refactor
 
