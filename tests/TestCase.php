@@ -30,43 +30,4 @@ abstract class TestCase extends BaseTestCase
             }
         });
     }
-
-    /**
-     * All helpers
-     */ 
-
-    protected function assumingThereIsAnUpcomingEvent()
-    {
-        return factory(Event::class)->create();
-    }
-
-    protected function iCanGetAnInvitationCodeForTheEvent($event)
-    {
-        $status = $this->json('POST', route('events.invitations.store', $event))->status();
-
-        if($status == Response::HTTP_UNAUTHORIZED)
-        {
-            return Response::HTTP_UNAUTHORIZED; 
-        } 
-    
-        return $event->getInvitation(auth()->user());
-    }
-
-    protected function assumingIamALoggedInUser()
-	{
-		$user = factory(User::class)->create();
-
-		$this->actingAs($user);
-
-		return $user;
-	}
-
-	protected function assumingIamALoggedInAdmin()
-	{
-		$user = factory(User::class)->create(['role' => 'admin']);
-
-		$this->actingAs($user);
-
-		return $user;
-	}
 }

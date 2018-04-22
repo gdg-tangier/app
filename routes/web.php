@@ -16,7 +16,3 @@ Route::get('/users', 'UserController@index')->name('users.index');
 Route::get('/users/{user}', 'UserController@show')->name('users.show');
 Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
 Route::patch('/users/{user}', 'UserController@update')->name('users.update');
-
-Route::post('/events/{event}/invitations', 'InvitationController@store')->name('events.invitations.store');
-
-Route::patch('/invitations/{invitation}', 'InvitationController@update')->name('invitations.update');
